@@ -1,0 +1,47 @@
+<form [formGroup]="myForm" (ngSubmit)="addPost(myForm.value)">
+
+  <label>
+    <p>Email</p>
+    <input formControlName="email" type="text" name="email"
+           [ngClass]="{'in-valid': !myForm.controls['email'].valid && myForm.controls['email'].touched}">
+    <p class="alert" *ngIf="!myForm.controls['email'].valid && myForm.controls['email'].touched">
+      Niepoprawny email!</p>
+  </label>
+
+  <label>
+    <p>Hasło</p>
+    <input formControlName="pass" type="password" name="pass"
+           [ngClass]="{'in-valid': !myForm.controls['pass'].valid && myForm.controls['pass'].touched}" />
+    <p class="alert" *ngIf="!myForm.controls['pass'].valid && myForm.controls['pass'].touched">
+      Hasło za krótkie!</p>
+  </label>
+
+  <label>
+    <p>Powtórz hasło</p>
+    <input formControlName="passRep" type="password" name="passRep"
+           [ngClass]="{'in-valid': !myForm.controls['passRep'].valid && myForm.controls['passRep'].touched}" />
+    <p class="alert" *ngIf="!myForm.controls['passRep'].valid && myForm.controls['passRep'].touched">
+      Hasło nie jest takie samo!</p>
+  </label>
+
+  <div class="checkboxes">
+    <label>
+      <input type="checkbox" />
+      <p>Akceptuję wszystkie zgody</p>
+    </label>
+    <label>
+      <input type="checkbox" />
+      <p>Zapoznałem/am się z Regulaminem</p>
+    </label>
+    <label>
+      <input type="checkbox" />
+      <p>Zapoznałem/am się z Polityką Prywatności</p>
+    </label>
+    <label>
+      <input type="checkbox" />
+      <p>Wyrażam zgodę na przetwarzanie moich danych w celach marketingowych</p>
+    </label>
+  </div>
+
+  <input [disabled]="!myForm.valid" class="btn" type="submit" value="Zarejestruj" />
+</form>

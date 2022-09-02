@@ -1,0 +1,61 @@
+form {
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+  align-items: center;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    &:nth-child(2) {
+      margin: 2rem 0;
+    }
+
+    input {
+      padding: 0.2rem 0;
+    }
+  }
+
+  p {
+    margin: 0.2rem 0;
+  }
+
+  .checkboxes {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0;
+
+    label {
+      flex-direction: row;
+      padding: 0.2rem 0;
+      margin: 0.3rem 0;
+
+      input {
+        margin-right: 1rem;
+      }
+    }
+  }
+
+  .in-valid {
+    border: 1px solid red;
+  }
+
+  .alert {
+    color: red;
+  }
+
+  .btn {
+    font-size: 1rem;
+    padding: 0.6rem 2.5rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    background: blueviolet;
+    transition: 2s;
+
+    &:hover {
+      background: red;
+    }
+  }
+}
