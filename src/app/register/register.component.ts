@@ -9,15 +9,23 @@ import { FormBuilder, FormGroup, Validators, ValidatorFn, ValidationErrors, Abst
 export class RegisterComponent {
   myForm: FormGroup;
   post: any;
-  
+  masterSelected: boolean;
+
   constructor(private fb: FormBuilder) {
+    this.masterSelected = false;
     this.myForm = fb.group({
         'email':
           [null, Validators.compose([Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')])],
         'pass':
           [null, Validators.compose([Validators.required, Validators.minLength(6)])],
         'passRep':
-          [null, Validators.compose([Validators.required, Validators.minLength(5)])]
+          [null, Validators.compose([Validators.required])],
+        'checkAll':
+          [false, Validators.requiredTrue],
+        'regulamin':
+          [false, Validators.requiredTrue],
+        'politic':
+          [false, Validators.requiredTrue]
       },
       {
         // check whether our password and confirm password match
@@ -27,7 +35,7 @@ export class RegisterComponent {
   }
 
   addPost(post: { email: any; pass: any; passRep: any; }) {
-    alert(`Post: ${post.email} ${post.pass} ${post.passRep}`);
+    window.alert(`Udało się zarejestrować!`);
   }
 }
 

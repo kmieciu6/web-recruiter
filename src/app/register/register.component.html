@@ -25,18 +25,29 @@
   </label>
 
   <div class="checkboxes">
+
     <label>
       <input type="checkbox" />
       <p>Akceptuję wszystkie zgody</p>
     </label>
+
+
     <label>
-      <input type="checkbox" />
+      <input type="checkbox" formControlName="regulamin" />
       <p>Zapoznałem/am się z Regulaminem</p>
     </label>
+    <p class="alert check" *ngIf="myForm.hasError('required', 'regulamin') ">
+      Wymagane
+    </p>
+
     <label>
-      <input type="checkbox" />
+      <input type="checkbox" formControlName="politic" />
       <p>Zapoznałem/am się z Polityką Prywatności</p>
     </label>
+    <p class="alert check" *ngIf="myForm.hasError('required', 'politic')">
+      Wymagane
+    </p>
+
     <label>
       <input type="checkbox" />
       <p>Wyrażam zgodę na przetwarzanie moich danych w celach marketingowych</p>
